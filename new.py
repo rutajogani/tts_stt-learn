@@ -8,13 +8,16 @@ r = sr.Recognizer()
 with sr.Microphone() as source:
     audio = r.listen(source)
 text = r.recognize_google(audio)
+# temp = r.recognize_google(audio)
 print("USER SPOKE: " + text)
 
 # tts statement
 engine = pyttsx3.init()
 engine.setProperty('rate', 120) 
 
-def web_browser(): # web browser function
+# web browser function
+def web_browser():
+    
     list_of_web_page = ["YouTube", "Google", "monkey type", "chat GPT"]
     
     for web_page in list_of_web_page:
@@ -38,6 +41,16 @@ def web_browser(): # web browser function
             print("----Chatgpt opened----")
             engine.say("Chatgpt opened")
             break
+        elif "GitHub" in text:
+            web.open("https://github.com/rutajogani")
+            print("----Github opened----")
+            engine.say("Github opened")
+            break
+
+    # if "search" in text:
+    #     temp = engine.say()
+    #     web.open("https://www.youtube.com/results?search_query" + temp)
+    #     print("hello")
 
 def date_time():  #date and time function
 

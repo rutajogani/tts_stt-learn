@@ -4,10 +4,13 @@ from datetime import datetime
 import webbrowser as web
 
 #stt statement
+# def listen(text):
 r = sr.Recognizer()
 with sr.Microphone() as source:
     audio = r.listen(source)
 text = r.recognize_google(audio)
+#return text
+#listen()
 print("USER SPOKE: " + text)
 
 # tts statement

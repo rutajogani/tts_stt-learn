@@ -18,19 +18,28 @@ engine.setProperty('rate', 120)
 # web browser function
 def web_browser():
     
-    list_of_web_page = ["YouTube", "Google", "monkey type", "chat GPT"]
+    list_of_web_page = ["YouTube", "Google", "monkey type", "chat GPT", "Gemini"]
     
     for web_page in list_of_web_page:
         if "YouTube" in text:
-            web.open("https://www.youtube.com/")
-            print("----Youtube opened----")
-            engine.say("Youtube opened")
-            break
+            # if "search" in text:
+                # web.open("https://www.youtube.com/results?search_query=" + "")
+                # print("hello")
+            # else:
+                web.open("https://www.youtube.com/")
+                print("----Youtube opened----")
+                engine.say("Youtube opened")
+                break
+                
         elif "Google" in text:
-            web.open("https://www.google.com/")
-            print("----Google opened----")
-            engine.say("Google opened")
-            break
+            # if "search" in text:
+            #     web.open("" + temp)
+            #     print("hello")
+            # else
+                web.open("https://www.google.com/")
+                print("----Google opened----")
+                engine.say("Google opened")
+                break
         elif "monkey type" in text:
             web.open("https://monkeytype.com/")
             print("----MonkeyType opened----")
@@ -46,11 +55,14 @@ def web_browser():
             print("----Github opened----")
             engine.say("Github opened")
             break
+        elif "Gemini" in text:
+            web.open("https://gemini.google.com/app")
+            print("----Gemini opened----")
+            engine.say("Gemini opened")
+            break
 
     # if "search" in text:
     #     temp = engine.say()
-    #     web.open("https://www.youtube.com/results?search_query" + temp)
-    #     print("hello")
 
 def date_time():  #date and time function
 

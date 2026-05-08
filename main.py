@@ -1,6 +1,5 @@
 import speech_recognition as sr
 import pyttsx3
-from datetime import datetime
 import webbrowser as web
 
 #stt statement
@@ -73,24 +72,6 @@ def web_browser(): # web browser function
             engine.say("Gemini opened")
             break
 
-def date_time():  # date and time function
-
-    now_date = datetime.now()
-    date_now = now_date.strftime("%d-%m-%Y")
-    now_time = datetime.now()
-    time_now = now_time.strftime("%H:%M:%S")
-
-    date_time = ["date","time"]
-
-    if "date" in text:
-        print(date_now)
-        engine.say(date_now)
-        engine.say("date is here:")
-        print("----Here is your Date----")
-    elif "time" in text:
-        print(time_now)
-        engine.say("time is here:")
-        print("----Here is your Time----")
 
 def things(): # Home related things 
 
@@ -106,6 +87,7 @@ def things(): # Home related things
     for thing in things:
         if thing in text:
             print("FOUND IT")
+            print(things[thing])
             engine.say(things[thing])
             found = 1
             break
@@ -114,8 +96,8 @@ def things(): # Home related things
         print("NOT FOUND")
 
 
-engine.runAndWait()
-
 web_browser()
 date_time()
 things()
+
+engine.runAndWait()

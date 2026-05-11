@@ -21,6 +21,7 @@ def things(): # Home related things
             print("FOUND IT")
             print(things[thing])
             engine.say(things[thing])
+            engine.runAndWait()
 
             found = 1
             break

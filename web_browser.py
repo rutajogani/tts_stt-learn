@@ -18,11 +18,13 @@ def web_browser(): # web browser function
                 what_to_search = listen()
                 searching = f"https://www.youtube.com/results?search_query={what_to_search}"
                 web.open(searching)
+                engine.runAndWait()
                 break
 
             web.open("https://www.youtube.com/")
             print("----Youtube opened----")
             engine.say("Youtube opened")
+            engine.runAndWait()
             break
 
         elif "Google" in text:
@@ -33,11 +35,13 @@ def web_browser(): # web browser function
                 what_to_search = listen()
                 searching = f"http://www.google.com/search?q={what_to_search}"
                 web.open(searching)
+                engine.runAndWait()
                 break
 
             web.open("https://www.google.com/")
             print("----Google opened----")
             engine.say("Google opened")
+            engine.runAndWait()
             break
 
         elif "monkey type" in text:
@@ -45,6 +49,7 @@ def web_browser(): # web browser function
             web.open("https://monkeytype.com/")
             print("----MonkeyType opened----")
             engine.say("MonkeyType opened")
+            engine.runAndWait()
             break
 
         elif "chat GPT" in text:
@@ -52,6 +57,7 @@ def web_browser(): # web browser function
             web.open("https://chatgpt.com/")
             print("----Chatgpt opened----")
             engine.say("Chatgpt opened")
+            engine.runAndWait()
             break
 
         elif "GitHub" in text:
@@ -59,6 +65,7 @@ def web_browser(): # web browser function
             web.open("https://github.com/rutajogani")
             print("----Github opened----")
             engine.say("Github opened")
+            engine.runAndWait()
             break
 
         elif "Gemini" in text:
@@ -66,6 +73,6 @@ def web_browser(): # web browser function
             web.open("https://gemini.google.com/app")
             print("----Gemini opened----")
             engine.say("Gemini opened")
+            engine.runAndWait()
             break
 
-engine.runAndWait()

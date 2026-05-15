@@ -10,4 +10,4 @@ def listen():
     text = r.recognize_google(audio)
     print("USER SPOKE: " + text)
 
-    return text
+    return text 

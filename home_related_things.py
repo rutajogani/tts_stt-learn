@@ -26,7 +26,8 @@ def things(text): # Home related things
             found = 1
             break
 
-    if found == 0:
-        print("NOT FOUND")
-        engine.runAndWait()
+        if found == 0:
+            print("NOT FOUND")
+            engine.runAndWait()
+            break
 

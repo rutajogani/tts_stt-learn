@@ -23,6 +23,7 @@ def web_browser(text): # web browser function
                 break
 
             web.open("https://www.youtube.com/")
+            print("hello")
             print("----Youtube opened----")
             engine.say("Youtube opened")
             print("hello")

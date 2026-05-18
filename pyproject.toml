@@ -5,7 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "cryptography>=48.0.0",
     "datetime>=6.0",
+    "maskpass>=0.3.7",
     "pyaudio>=0.2.14",
     "pyttsx3>=2.99",
     "speechrecognition>=3.16.0",

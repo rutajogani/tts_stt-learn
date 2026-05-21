@@ -1,8 +1,9 @@
 import getpass
 
 password_temp = "hello world"
+final_password = input("Enter Password: ")
 
 if password_temp == final_password:
-    # go in side
+    print(final_password)
 else:
     print("Your Password is not ar")

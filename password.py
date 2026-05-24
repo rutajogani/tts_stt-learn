@@ -1,7 +1,7 @@
 import getpass
 
-
 def password():
+    
     password_temp = "hello world"
     final_password = input("Enter Password: ")
 

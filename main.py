@@ -1,16 +1,28 @@
 from listen import listen
+from speak import speak
 from date_time import date_time
 from web_browser import web_browser
 from home_related_things import things
 from password import password
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
-import pyttsx3
 
-engine = pyttsx3.init()
-engine.setProperty('rate', 120) 
+# Selenium
+driver = webdriver.Chrome()
+driver.quit()
 
-text = listen()
+if "youtube" in text.lower():
+    driver.get("https://youtube.com")
+    engine.say("Opening YouTube")
+    engine.runAndWait()
 
-date_time(text)
-web_browser(text)
-things(text)
+# engine = pyttsx3.init()
+# engine.setProperty('rate', 120) 
+# text = listen()
+# speak(text)
+
+# password()
+# date_time(text)
+# web_browser(text)
+# things(text)

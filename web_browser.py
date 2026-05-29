@@ -1,4 +1,5 @@
 from listen import listen
+from speak import speak
 import webbrowser as web
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -18,28 +19,29 @@ def web_browser(text): # web browser function
         if "YouTube" in text:
             
             while True:
+
+                command = listen()
                 
-            command = listen()
-            
-            # open youtube
-            if "open youtube" in command:
-                driver = webdriver.Chrome()
-                driver.get("https://youtube.com")
+                # open youtube
+                if "open youtube" in command:
+                    driver = webdriver.Chrome()
+                    driver.get("https://youtube.com")
+                    
 
-            # searching in youtube
-            if "search" in text:
-                print("Speak what you want to search: ")
-                what_to_search = listen()
-                searching = f"https://www.youtube.com/results?search_query={what_to_search}"
-                web.open(searching)
-                engine.runAndWait()
+                # searching in youtube
+                if "search" in command:
+                    print("Speak what you want to search: ")
+                    what_to_search = listen()
+                    searching = f"https://www.youtube.com/results?search_query={what_to_search}"
+                    web.open(searching)
+                    engine.runAndWait()
 
-            #close youtube 
-            elif "close youtube" in command:
-                 if driver:
-                    driver.quit()
-                    driver = None
-                    break
+                #close youtube 
+                elif "close youtube" in command:
+                    if driver:
+                        driver.quit()
+                        driver = None
+                        break
             
 
         web.open("https://www.youtube.com/")

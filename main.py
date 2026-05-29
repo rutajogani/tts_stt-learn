@@ -13,7 +13,7 @@ text = listen()
 
 speak(text)
 
-password()
-date_time(text)
+# password("hello world")
+# date_time(text)
 web_browser(text)
-things(text)
+# things(text)

@@ -1,6 +1,6 @@
 from listen import listen
 from speak import speak
-import webbrowser as web
+#import webbrowser as web
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pyttsx3
@@ -8,7 +8,6 @@ import pyttsx3
 engine = pyttsx3.init()
 engine.setProperty('rate', 120) 
 
-driver = None
 
 def web_browser(text): # web browser function
 
@@ -23,13 +22,19 @@ def web_browser(text): # web browser function
                 command = listen()
                 
                 # open youtube
-                if "open youtube" in command:
+                if "open" in command:
                     driver = webdriver.Chrome()
+                    print("COMING HERE")
                     driver.get("https://youtube.com")
                     
 
                 # searching in youtube
-                if "search" in command:
+                elif "search" in command:
+
+                    # check if youtube is open
+                        # select searchbox and paste the text
+                    # else 
+                        # open youtube and then search
                     print("Speak what you want to search: ")
                     what_to_search = listen()
                     searching = f"https://www.youtube.com/results?search_query={what_to_search}"
@@ -42,13 +47,12 @@ def web_browser(text): # web browser function
                         driver.quit()
                         driver = None
                         break
-            
 
-        web.open("https://www.youtube.com/")
-        print("----Youtube opened----")
-        engine.say("Youtube opened")
-        engine.runAndWait()
-        break
+            # web.open("https://www.youtube.com/")
+            # print("----Youtube opened----")
+            # engine.say("Youtube opened")
+            # engine.runAndWait()
+            break
 
         elif "Google" in text:
 

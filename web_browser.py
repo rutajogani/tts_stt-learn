@@ -8,6 +8,7 @@ import pyttsx3
 engine = pyttsx3.init()
 engine.setProperty('rate', 120) 
 
+driver = None
 
 def web_browser(text): # web browser function
 
@@ -30,10 +31,24 @@ def web_browser(text): # web browser function
 
                 # searching in youtube
                 elif "search" in command:
+                    what_to_search = listen()
 
-                    # check if youtube is open
-                        # select searchbox and paste the text
-                    # else 
+                    if "youtube open":
+                        video = driver.find_element(
+                            By.XPATH,
+                            //*[@id="center"]/yt-searchbox
+                        )
+                        video.click(what_to_search)    
+
+                    else:
+                        driver = webdriver.Chrome()
+                        driver.get("https://youtube.com")
+                        video = driver.find_element(
+                            By.XPATH,
+                            //*[@id="center"]/yt-searchbox
+                        )
+                        video.click(what_to_search)                        
+
                         # open youtube and then search
                     print("Speak what you want to search: ")
                     what_to_search = listen()

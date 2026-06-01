@@ -10,6 +10,7 @@ dependencies = [
     "maskpass>=0.3.7",
     "pyaudio>=0.2.14",
     "pyttsx3>=2.99",
+    "requests>=2.34.2",
     "selenium>=4.44.0",
     "speechrecognition>=3.16.0",
 ]

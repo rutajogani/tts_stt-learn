@@ -27,6 +27,7 @@ def web_browser(text): # web browser function
                     driver = webdriver.Chrome()
                     print("COMING HERE")
                     driver.get("https://youtube.com")
+                    speak("youtube opened")
                     
 
                 # searching in youtube
@@ -39,6 +40,7 @@ def web_browser(text): # web browser function
                             //*[@id="center"]/yt-searchbox
                         )
                         video.click(what_to_search)    
+                        speak("searching youtube")
 
                     else:
                         driver = webdriver.Chrome()
@@ -48,13 +50,7 @@ def web_browser(text): # web browser function
                             //*[@id="center"]/yt-searchbox
                         )
                         video.click(what_to_search)                        
-
-                        # open youtube and then search
-                    print("Speak what you want to search: ")
-                    what_to_search = listen()
-                    searching = f"https://www.youtube.com/results?search_query={what_to_search}"
-                    web.open(searching)
-                    engine.runAndWait()
+                        speak("searching youtube")
 
                 #close youtube 
                 elif "close youtube" in command:

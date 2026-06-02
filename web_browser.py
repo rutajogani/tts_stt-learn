@@ -3,10 +3,11 @@ from speak import speak
 #import webbrowser as web
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import pyttsx3
+import requests
 
-engine = pyttsx3.init()
-engine.setProperty('rate', 120) 
+def check_open_or_not():
+        r = requests.get("https://www.youtube.com", timeout=5)
+        print("YouTube is reachable:", r.status_code)
 
 driver = None
 
@@ -37,7 +38,7 @@ def web_browser(text): # web browser function
                     if "youtube open":
                         video = driver.find_element(
                             By.XPATH,
-                            //*[@id="center"]/yt-searchbox
+                             "//input[@name='search_query']"
                         )
                         video.click(what_to_search)    
                         speak("searching youtube")
@@ -47,7 +48,7 @@ def web_browser(text): # web browser function
                         driver.get("https://youtube.com")
                         video = driver.find_element(
                             By.XPATH,
-                            //*[@id="center"]/yt-searchbox
+                             "//input[@name='search_query']"
                         )
                         video.click(what_to_search)                        
                         speak("searching youtube")
@@ -58,11 +59,11 @@ def web_browser(text): # web browser function
                         driver.quit()
                         driver = None
                         break
-
-            # web.open("https://www.youtube.com/")
-            # print("----Youtube opened----")
-            # engine.say("Youtube opened")
-            # engine.runAndWait()
+                        
+            driver = webdriver.Chrome()
+            print("COMING HERE")
+            driver.get("https://youtube.com")
+            speak("youtube opened")
             break
 
         elif "Google" in text:

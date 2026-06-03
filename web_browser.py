@@ -36,21 +36,22 @@ def web_browser(text): # web browser function
                     what_to_search = listen()
 
                     if "youtube open":
-                        video = driver.find_element(
-                            By.XPATH,
-                             "//input[@name='search_query']"
-                        )
-                        video.click(what_to_search)    
+                        search = driver.find_element(
+                        By.XPATH,
+                           "//input[@id='search']"
+                       )
+                        search.click(what_to_search)    
                         speak("searching youtube")
 
                     else:
                         driver = webdriver.Chrome()
                         driver.get("https://youtube.com")
-                        video = driver.find_element(
-                            By.XPATH,
-                             "//input[@name='search_query']"
-                        )
-                        video.click(what_to_search)                        
+                        
+                        search = driver.find_element(
+                        By.XPATH,
+                           "//input[@id='search']"
+                       )
+                        search.click(what_to_search)    
                         speak("searching youtube")
 
                 #close youtube 

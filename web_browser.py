@@ -11,6 +11,7 @@ def check_open_or_not():
 
 driver = None
 
+
 def web_browser(text): # web browser function
 
     list_of_web_page = ["YouTube", "Google", "monkey type", "chat GPT", "Gemini"]
@@ -27,32 +28,36 @@ def web_browser(text): # web browser function
                 if "open" in command:
                     driver = webdriver.Chrome()
                     print("COMING HERE")
-                    driver.get("https://youtube.com")
+                    response = driver.get("https://youtube.com")
                     speak("youtube opened")
                     
-
                 # searching in youtube
                 elif "search" in command:
                     what_to_search = listen()
+                
+                    try:
 
-                    if "youtube open":
-                        search = driver.find_element(
-                        By.XPATH,
-                           "//input[@id='search']"
-                       )
-                        search.click(what_to_search)    
-                        speak("searching youtube")
+                        if response.status_code == 200:
+                            search = driver.find_element(
+                            By.XPATH,
+                            "//input[@id='search']"
+                        )
+                            search.click(what_to_search)    
+                            speak("searching youtube")
+                            
+                        else:
+                            driver = webdriver.Chrome()
+                            driver.get("https://youtube.com")
+                            
+                            search = driver.find_element(
+                            By.XPATH,
+                            "//input[@id='search']"
+                        )
+                            search.click(what_to_search)    
+                            speak("searching youtube")                            
 
-                    else:
-                        driver = webdriver.Chrome()
-                        driver.get("https://youtube.com")
-                        
-                        search = driver.find_element(
-                        By.XPATH,
-                           "//input[@id='search']"
-                       )
-                        search.click(what_to_search)    
-                        speak("searching youtube")
+                    except requests.RequestException:
+                        print("YouTube is not reachable → Do THAT")
 
                 #close youtube 
                 elif "close youtube" in command:

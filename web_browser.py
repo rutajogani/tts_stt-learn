@@ -23,7 +23,6 @@ def web_browser(text): # web browser function
             while True:
 
                 command = listen()
-                
                 # open youtube
                 if "open" in command:
                     driver = webdriver.Chrome()
@@ -35,19 +34,19 @@ def web_browser(text): # web browser function
                 elif "search" in command:
                     what_to_search = listen()
                 
-                    try:
+                    # try:
 
-                        if response.status_code == 200:
-                            search = driver.find_element(
-                            By.XPATH,
-                            "//input[@id='search']"
-                        )
-                            search.click(what_to_search)    
-                            speak("searching youtube")
+                    #     if response.status_code == 200:
+                    #         search = driver.find_element(
+                    #          By.XPATH,
+                    #         "//input[@id='search']"
+                    #     )
+                    #         search.click(what_to_search)    
+                    #         speak("searching youtube")
                             
-                        else:
-                            driver = webdriver.Chrome()
-                            driver.get("https://youtube.com")
+                    #     else:
+                            # driver = webdriver.Chrome()
+                            # driver.get("https://youtube.com")
                             
                             search = driver.find_element(
                             By.XPATH,
@@ -56,8 +55,8 @@ def web_browser(text): # web browser function
                             search.click(what_to_search)    
                             speak("searching youtube")                            
 
-                    except requests.RequestException:
-                        print("YouTube is not reachable → Do THAT")
+                    # except requests.RequestException:
+                    #     print("YouTube is not reachable → Do THAT")
 
                 #close youtube 
                 elif "close youtube" in command:

@@ -33,6 +33,13 @@ def web_browser(text): # web browser function
                 # searching in youtube
                 elif "search" in command:
                     what_to_search = listen()
+
+                    search = driver.find_element(
+                    By.XPATH,
+                    "//input[@id='search']"
+                    )
+                    search.click(what_to_search)    
+                    speak("searching youtube")                            
                 
                     # try:
 
@@ -48,12 +55,12 @@ def web_browser(text): # web browser function
                             # driver = webdriver.Chrome()
                             # driver.get("https://youtube.com")
                             
-                            search = driver.find_element(
-                            By.XPATH,
-                            "//input[@id='search']"
-                        )
-                            search.click(what_to_search)    
-                            speak("searching youtube")                            
+                        #     search = driver.find_element(
+                        #     By.XPATH,
+                        #     "//input[@id='search']"
+                        # )
+                        #     search.click(what_to_search)    
+                        #     speak("searching youtube")                            
 
                     # except requests.RequestException:
                     #     print("YouTube is not reachable → Do THAT")

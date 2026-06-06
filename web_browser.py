@@ -36,7 +36,7 @@ def web_browser(text): # web browser function
 
                     search = driver.find_element(
                     By.XPATH,
-                    "//input[@id='search']"
+                    "//input[@id='search_query']"
                     )
                     search.click(what_to_search)    
                     speak("searching youtube")                            

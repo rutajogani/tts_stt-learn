@@ -36,8 +36,7 @@ def web_browser(text): # web browser function
 
                     search = driver.find_element(
                     By.XPATH,
-                    # "//input[@id='search_query']"
-                    "//*[@id="voice-search-button"]/ytd-button-renderer/yt-button-shape/button/yt-touch-feedback-shape/div[2]"
+                    "//input[@id='search_query']"
                     )
                     search.click(what_to_search)    
                     speak("searching youtube")                            

@@ -3,11 +3,15 @@ from speak import speak
 #import webbrowser as web
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
 import requests
+import time
+
 
 def check_open_or_not():
-        r = requests.get("https://www.youtube.com", timeout=5)
-        print("YouTube is reachable:", r.status_code)
+    r = requests.get("https://www.youtube.com", timeout=5)
+    print("YouTube is reachable:", r.status_code)
 
 driver = None
 
@@ -18,7 +22,7 @@ def web_browser(text): # web browser function
     
     for web_page in list_of_web_page:
 
-        if "YouTube" in text:
+        if "youtube" in text:
             
             while True:
 
@@ -33,14 +37,13 @@ def web_browser(text): # web browser function
                 # searching in youtube
                 elif "search" in command:
                     what_to_search = listen()
+                    time.sleep(3)
 
-                    search = driver.find_element(
-                    By.XPATH,
-                    "//input[@id='search_query']"
-                    )
-                    search.click(what_to_search)    
-                    speak("searching youtube")                            
-                
+                    search_box = driver.find_element(By.NAME, "search_query")
+                    search_box.send_keys(what_to_search)
+                    what_to_search = ""
+                    search_box.send_keys(Keys.RETURN)
+
                     # try:
 
                     #     if response.status_code == 200:
@@ -69,7 +72,6 @@ def web_browser(text): # web browser function
                 elif "close youtube" in command:
                     if driver:
                         driver.quit()
-                        driver = None
                         break
                         
             driver = webdriver.Chrome()
@@ -78,7 +80,7 @@ def web_browser(text): # web browser function
             speak("youtube opened")
             break
 
-        elif "Google" in text:
+        elif "google" in text:
 
             if "search" in text:
 
@@ -103,7 +105,7 @@ def web_browser(text): # web browser function
             engine.runAndWait()
             break
 
-        elif "chat GPT" in text:
+        elif "chatgpt" in text:
 
             web.open("https://chatgpt.com/")
             print("----Chatgpt opened----")
@@ -111,7 +113,7 @@ def web_browser(text): # web browser function
             engine.runAndWait()
             break
 
-        elif "GitHub" in text:
+        elif "github" in text:
 
             web.open("https://github.com/rutajogani")
             print("----Github opened----")
@@ -119,7 +121,7 @@ def web_browser(text): # web browser function
             engine.runAndWait()
             break
 
-        elif "Gemini" in text:
+        elif "gemini" in text:
 
             web.open("https://gemini.google.com/app")
             print("----Gemini opened----")

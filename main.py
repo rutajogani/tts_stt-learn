@@ -14,6 +14,6 @@ text = listen()
 speak(text)
 
 # password("hello world")
-date_time(text)
-# web_browser(text)
+# date_time(text)
+web_browser(text)
 # things(text)

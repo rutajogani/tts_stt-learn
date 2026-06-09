@@ -1,13 +1,35 @@
 import speech_recognition as sr
 
-#stt statement
+
 def listen():
-    r = sr.Recognizer()
+    recognizer = sr.Recognizer()
 
-    with sr.Microphone() as source:
-        audio = r.listen(source)
+    try:
+        with sr.Microphone() as source:
+            print("🎤 Listening...")
 
-    text = r.recognize_google(audio)
-    print("USER SPOKE: " + text)
+            # Adjust for ambient noise
+            recognizer.adjust_for_ambient_noise(source, duration=1)
 
-    return text 
+            # Wait until user speaks
+            audio = recognizer.listen(source)
+
+        print("🔍 Recognizing...")
+
+        text = recognizer.recognize_google(audio)
+
+        print(f"USER SPOKE: {text}")
+
+        return text.lower()
+
+    except sr.UnknownValueError:
+        print("❌ Could not understand audio.")
+        return None
+
+    except sr.RequestError as e:
+        print(f"❌ Speech recognition service error: {e}")
+        return None
+
+    except Exception as e:
+        print(f"❌ Unexpected error: {e}")
+        return None

@@ -15,17 +15,15 @@ def check_open_or_not():
 
 driver = None
 
-def youtube(text):
-     
+def youtube():
     while True:
-
         command = listen()
         
         # open youtube
         if "open" in command:
             driver = webdriver.Chrome()
             print("COMING HERE")
-            response = driver.get("https://youtube.com")
+            driver.get("https://youtube.com")
             speak("youtube opened")
             
         # searching in youtube
@@ -72,6 +70,5 @@ def youtube(text):
                 break
                 
     driver = webdriver.Chrome()
-    print("COMING HERE")
     driver.get("https://youtube.com")
     speak("youtube opened")

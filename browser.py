@@ -14,7 +14,7 @@ driver = None
 def browser(text):
 
     if "youtube" in text:
-        youtube(text)
+        youtube()
 
     elif "google" in text:
         google()

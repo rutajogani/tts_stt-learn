@@ -10,10 +10,12 @@ from selenium.webdriver.common.by import By
 
 
 text = listen()
-
 speak(text)
 
 # password("hello world")
-# date_time(text)
+
+if "data" or "time" in text:
+    date_time(text)
+
 web_browser(text)
 # things(text)

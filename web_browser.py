@@ -1,3 +1,6 @@
+from youtube import youtube
+
+
 from listen import listen
 from speak import speak
 #import webbrowser as web
@@ -18,118 +21,59 @@ driver = None
 
 def web_browser(text): # web browser function
 
-    list_of_web_page = ["YouTube", "Google", "monkey type", "chat GPT", "Gemini"]
-    
-    for web_page in list_of_web_page:
+    if "youtube" in text:
+        youtube()
+        
+    elif "google" in text:
 
-        if "youtube" in text:
-            
-            while True:
+        if "search" in text:
 
-                command = listen()
-                # open youtube
-                if "open" in command:
-                    driver = webdriver.Chrome()
-                    print("COMING HERE")
-                    response = driver.get("https://youtube.com")
-                    speak("youtube opened")
-                    
-                # searching in youtube
-                elif "search" in command:
-                    what_to_search = listen()
-                    time.sleep(3)
-
-                    search_box = driver.find_element(By.NAME, "search_query")
-                    search_box.send_keys(what_to_search)
-                    what_to_search = ""
-                    search_box.send_keys(Keys.RETURN)
-
-                    # try:
-
-                    #     if response.status_code == 200:
-                    #         search = driver.find_element(
-                    #          By.XPATH,
-                    #         "//input[@id='search']"
-                    #     )
-                    #         search.click(what_to_search)    
-                    #         speak("searching youtube")
-                            
-                    #     else:
-                            # driver = webdriver.Chrome()
-                            # driver.get("https://youtube.com")
-                            
-                        #     search = driver.find_element(
-                        #     By.XPATH,
-                        #     "//input[@id='search']"
-                        # )
-                        #     search.click(what_to_search)    
-                        #     speak("searching youtube")                            
-
-                    # except requests.RequestException:
-                    #     print("YouTube is not reachable → Do THAT")
-
-                #close youtube 
-                elif "close youtube" in command:
-                    if driver:
-                        driver.quit()
-                        break
-                        
-            driver = webdriver.Chrome()
-            print("COMING HERE")
-            driver.get("https://youtube.com")
-            speak("youtube opened")
-            break
-
-        elif "google" in text:
-
-            if "search" in text:
-
-                print("Speak what you want to search: ")
-                what_to_search = listen()
-                searching = f"http://www.google.com/search?q={what_to_search}"
-                web.open(searching)
-                engine.runAndWait()
-                break
-
-            web.open("https://www.google.com/")
-            print("----Google opened----")
-            engine.say("Google opened")
+            print("Speak what you want to search: ")
+            what_to_search = listen()
+            searching = f"http://www.google.com/search?q={what_to_search}"
+            web.open(searching)
             engine.runAndWait()
             break
 
-        elif "monkey type" in text:
+        web.open("https://www.google.com/")
+        print("----Google opened----")
+        engine.say("Google opened")
+        engine.runAndWait()
+        break
 
-            web.open("https://monkeytype.com/")
-            print("----MonkeyType opened----")
-            engine.say("MonkeyType opened")
-            engine.runAndWait()
-            break
+    elif "monkey type" in text:
 
-        elif "chatgpt" in text:
+        web.open("https://monkeytype.com/")
+        print("----MonkeyType opened----")
+        engine.say("MonkeyType opened")
+        engine.runAndWait()
+        break
 
-            web.open("https://chatgpt.com/")
-            print("----Chatgpt opened----")
-            engine.say("Chatgpt opened")
-            engine.runAndWait()
-            break
+    elif "chatgpt" in text:
 
-        elif "github" in text:
+        web.open("https://chatgpt.com/")
+        print("----Chatgpt opened----")
+        engine.say("Chatgpt opened")
+        engine.runAndWait()
+        break
 
-            web.open("https://github.com/rutajogani")
-            print("----Github opened----")
-            engine.say("Github opened")
-            engine.runAndWait()
-            break
+    elif "github" in text:
 
-        elif "gemini" in text:
+        web.open("https://github.com/rutajogani")
+        print("----Github opened----")
+        engine.say("Github opened")
+        engine.runAndWait()
+        break
 
-            web.open("https://gemini.google.com/app")
-            print("----Gemini opened----")
-            engine.say("Gemini opened")
-            engine.runAndWait()
-            break
+    elif "gemini" in text:
 
-            # elif "exit" in command:
-            #     if driver:
-            #     driver.quit()
-            #     break
+        web.open("https://gemini.google.com/app")
+        print("----Gemini opened----")
+        engine.say("Gemini opened")
+        engine.runAndWait()
+        break
+
+    # elif "exit" in command:
+    #     if driver:
+    #         driver.quit()
+    #         break

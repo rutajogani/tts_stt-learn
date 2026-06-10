@@ -1,13 +1,7 @@
 from web_browser import youtube
 from web_browser import google
 
-import webbrowser as web
-from listen import listen
 from speak import speak
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-
 import requests
 
 
@@ -17,8 +11,7 @@ def check_open_or_not():
 
 driver = None
 
-
-def browser(text): # web browser function
+def browser(text):
 
     if "youtube" in text:
         youtube(text)
@@ -26,40 +19,22 @@ def browser(text): # web browser function
     elif "google" in text:
         google()
 
-
     elif "monkey type" in text:
-
-        web.open("https://monkeytype.com/")
+        # TODO: Open MonkeyType with Selenium
         print("----MonkeyType opened----")
-        engine.say("MonkeyType opened")
-        engine.runAndWait()
-        
+        speak("MonkeyType opened")
 
     elif "chatgpt" in text:
-
-        web.open("https://chatgpt.com/")
+        # TODO: Open ChatGPT with Selenium
         print("----Chatgpt opened----")
-        engine.say("Chatgpt opened")
-        engine.runAndWait()
-        
+        speak("Chatgpt opened")
 
     elif "github" in text:
-
-        web.open("https://github.com/rutajogani")
+        # TODO: Open GitHub with Selenium
         print("----Github opened----")
-        engine.say("Github opened")
-        engine.runAndWait()
-        
+        speak("GitHub opened")
 
     elif "gemini" in text:
-
-        web.open("https://gemini.google.com/app")
+        # TODO: Open Gemini with Selenium
         print("----Gemini opened----")
-        engine.say("Gemini opened")
-        engine.runAndWait()
-        
-
-    # elif "exit" in command:
-    #     if driver:
-    #         driver.quit()
-    #         break
+        speak("Gemini opened")

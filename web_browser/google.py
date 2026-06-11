@@ -15,24 +15,19 @@ def check_open_or_not():
 
 driver = None
 
-def google(text):
-
+def google():
     while True:
-
         command = listen()
-        
-        # open youtube
+
         if "open" in command:
             driver = webdriver.Chrome()
             print("COMING HERE")
             driver.get("https://www.google.com/")
             speak("Google opened")
-            
-        # searching in youtube
+
         elif "search" in command:
             what_to_search = listen()
             time.sleep(3)
-
             search_box = driver.find_element(By.NAME, "search_query")
             search_box.send_keys(what_to_search)
             what_to_search = ""

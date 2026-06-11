@@ -70,5 +70,6 @@ def youtube():
                 break
                 
     driver = webdriver.Chrome()
+    print("COMING HERE")
     driver.get("https://youtube.com")
     speak("youtube opened")

@@ -10,30 +10,24 @@ import time
 
 
 def check_open_or_not():
-    r = requests.get("https://www.youtube.com", timeout=5)
-    print("YouTube is reachable:", r.status_code)
+    r = requests.get("https://www.google.com/", timeout=5)
+    print("Google is reachable:", r.status_code)
 
 driver = None
 
-def youtube():
+def google():
     while True:
         command = listen()
-        
-        # open youtube
+
         if "open" in command:
             driver = webdriver.Chrome()
             print("COMING HERE")
-            driver.get("https://youtube.com")
-            speak("youtube opened")
-            
-        # searching in youtube
+            driver.get("https://www.google.com/")
+            speak("Google opened")
+
         elif "search" in command:
             what_to_search = listen()
             time.sleep(3)
-
-            if "youtube" in what_to_search:
-                youtube()   
-
             search_box = driver.find_element(By.NAME, "search_query")
             search_box.send_keys(what_to_search)
             what_to_search = ""
@@ -67,9 +61,10 @@ def youtube():
         elif "close" in command:
             if driver:
                 driver.quit()
+                print("🚀 ~ google ~ driver:", driver)
                 break
                 
     driver = webdriver.Chrome()
     print("COMING HERE")
-    driver.get("https://youtube.com")
-    speak("youtube opened")
+    driver.get("https://www.google.com/")
+    speak("Google opened")

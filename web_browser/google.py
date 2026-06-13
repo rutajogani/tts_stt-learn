@@ -28,10 +28,16 @@ def google():
         elif "search" in command:
             what_to_search = listen()
             time.sleep(3)
-            search_box = driver.find_element(By.NAME, "search_query")
-            search_box.send_keys(what_to_search)
+            # search_box = driver.find_element(By.NAME,  "search_query")
+            # search_box = driver.find_element(By.NAME, "q")
+            search_box = driver.find_element(By.NAME, "q") 
+            # search_box.clear() 
+            # search_box.send_keys(what_to_search) 
+            # search_box.submit()
+            search_box.send_keys(what_to_search)    
             what_to_search = ""
             search_box.send_keys(Keys.RETURN)
+
 
             # try:
 
@@ -64,7 +70,7 @@ def google():
                 print("🚀 ~ google ~ driver:", driver)
                 break
                 
-    driver = webdriver.Chrome()
-    print("COMING HERE")
-    driver.get("https://www.google.com/")
-    speak("Google opened")
+    # driver = webdriver.Chrome()
+    # print("COMING HERE")
+    # driver.get("https://www.google.com/")
+    # speak("Google opened")

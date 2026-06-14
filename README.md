@@ -33,9 +33,33 @@ So, Date and Time work very simple you just speak what you want time or date
                         or
                 only speak youtube
 
-        ==================================
-                02:45:25
+        ============================================
 
         --------opened youtube in web browser--------                
 
 2. same like if you want search in youtube so just speak search than speak what you want searching.
+
+        speak: can you search in youtube
+                        or
+                only speak search
+
+you speak then return you should speak that what you want to search in youtube. you want search song in youtube
+
+        speak: can you open song
+                        or
+                only speak song
+
+
+        ============================================
+
+        --------searched in web browser--------    
+
+3. same like if you want close in youtube so just speak close the youtube.
+
+        speak: can you close youtube
+                        or
+                only speak youtube
+
+        ============================================
+
+        --------searched in web browser--------    

@@ -26,7 +26,16 @@
 So, Date and Time work very simple you just speak what you want time or date 
 
                          Here is Web Browser
-1. If you want open Youtube so just speak youtube or also speak can you open youtube.Hu palladium side jav chu old frd ne mlva
+1. If you want open Youtube so just speak youtube or also speak can you open youtube. 
 
 
-                speak: can 
+        speak: can you open youtube
+                        or
+                only speak youtube
+
+        ==================================
+                02:45:25
+
+        --------opened youtube in web browser--------                
+
+2. same like if you want search in youtube so just speak search than speak what you want searching.

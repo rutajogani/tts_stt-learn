@@ -1,5 +1,7 @@
 from web_browser import youtube
 from web_browser import google
+from web_browser import monkey_type
+from web_browser import chatgpt
 
 from speak import speak
 import requests
@@ -20,14 +22,11 @@ def browser(text):
         google()
 
     elif "monkey type" in text:
-        # TODO: Open MonkeyType with Selenium
-        print("----MonkeyType opened----")
-        speak("MonkeyType opened")
+        monkey_type()
+        
 
     elif "chatgpt" in text:
-        # TODO: Open ChatGPT with Selenium
-        print("----Chatgpt opened----")
-        speak("Chatgpt opened")
+        chatgpt()
 
     elif "github" in text:
         # TODO: Open GitHub with Selenium

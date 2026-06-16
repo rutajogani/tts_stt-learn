@@ -7,3 +7,4 @@ def monkey_type():
     print("COMING HERE")
     driver.get("https://monkeytype.com/")
     speak("Monkey type opened")
+    

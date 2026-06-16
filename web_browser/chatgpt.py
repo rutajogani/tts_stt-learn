@@ -7,3 +7,4 @@ def chatgpt():
     print("COMING HERE")
     driver.get("https://chatgpt.com/")
     speak("Chatgpt opened")
+    

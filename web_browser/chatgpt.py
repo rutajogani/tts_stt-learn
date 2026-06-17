@@ -1,10 +1,9 @@
 from speak import speak
-from selenium import webdriver
+from hold import hold_web_page
 
 def chatgpt():
 
-    driver = webdriver.Chrome()
     print("COMING HERE")
-    driver.get("https://chatgpt.com/")
+    hold_web_page("https://chatgpt.com/")
     speak("Chatgpt opened")
-    
+    print("--------Chatgpt opened--------")

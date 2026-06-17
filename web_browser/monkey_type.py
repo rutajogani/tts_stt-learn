@@ -1,10 +1,10 @@
 from speak import speak
-from selenium import webdriver
+from hold import hold_web_page
+
 
 def monkey_type():
 
-    driver = webdriver.Chrome()
     print("COMING HERE")
-    driver.get("https://monkeytype.com/")
+    hold_web_page("https://monkeytype.com/")
     speak("Monkey type opened")
-    
+    print("--------Monkey type opened--------")

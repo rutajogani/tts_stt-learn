@@ -1,5 +1,6 @@
 from listen import listen
 from speak import speak
+from hold import hold_web_page
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -22,18 +23,14 @@ def google():
         if "open" in command:
             driver = webdriver.Chrome()
             print("COMING HERE")
-            driver.get("https://www.google.com/")
+            hold_web_page("https://www.google.com/")
             speak("Google opened")
+            print("--------Google opened--------")
 
         elif "search" in command:
             what_to_search = listen()
             time.sleep(3)
-            # search_box = driver.find_element(By.NAME,  "search_query")
-            # search_box = driver.find_element(By.NAME, "q")
             search_box = driver.find_element(By.NAME, "q") 
-            # search_box.clear() 
-            # search_box.send_keys(what_to_search) 
-            # search_box.submit()
             search_box.send_keys(what_to_search)    
             what_to_search = ""
             search_box.send_keys(Keys.RETURN)

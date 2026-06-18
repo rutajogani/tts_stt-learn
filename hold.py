@@ -9,3 +9,4 @@ def hold_web_page(url):
     driver.get(url)
 
     return driver
+    

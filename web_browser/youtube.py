@@ -1,9 +1,12 @@
 from listen import listen
 from speak import speak
+from hold import hold_web_page
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+
 
 import requests
 import time
@@ -23,7 +26,7 @@ def youtube():
         if "open" in command:
             driver = webdriver.Chrome()
             print("COMING HERE")
-            driver.get("https://youtube.com")
+            hold_web_page("https://youtube.com")
             speak("youtube opened")
             
         # searching in youtube

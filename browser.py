@@ -25,7 +25,7 @@ def browser(text):
         monkey_type()
         
 
-    elif "chatgpt" in text:
+    elif "chat GPT" in text:
         chatgpt()
 
     elif "github" in text:

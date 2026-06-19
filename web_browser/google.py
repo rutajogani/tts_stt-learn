@@ -30,7 +30,7 @@ def google():
         elif "search" in command:
             what_to_search = listen()
             time.sleep(3)
-            search_box = driver.find_element(By.NAME, "q") 
+            search_box = driver.find_element(By.NAME, "q")
             search_box.send_keys(what_to_search)    
             what_to_search = ""
             search_box.send_keys(Keys.RETURN)

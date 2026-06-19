@@ -20,6 +20,7 @@ driver = None
 
 def youtube():
     while True:
+        global driver
         command = listen()
         
         # open youtube
@@ -31,6 +32,11 @@ def youtube():
             
         # searching in youtube
         elif "search" in command:
+            print("Is ther comeing here?")
+            if driver is None:
+                driver = webdriver.Chrome()
+                hold_web_page("https://youtube.com")
+
             what_to_search = listen()
             time.sleep(3)
 
